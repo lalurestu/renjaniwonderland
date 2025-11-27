@@ -1,0 +1,356 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #26667f;
+}
+.navbar nav {
+  background-color: #ddf4e7;
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  padding-left: 3rem;
+  height: 6rem;
+}
+.navbar nav a {
+  color: #26667f;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  font-weight: 500;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  list-style: none;
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+.navbar nav h1 span {
+  color: #124170;
+}
+.navbar nav li {
+  display: flex;
+  margin: 30px;
+}
+.navbar nav li ::after {
+  content: "";
+  display: block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #124170;
+  transform: scale(0);
+}
+.navbar nav li :hover::after {
+  transform: scale(0.5);
+  transition: 0.5s linear;
+}
+.about {
+  background-image: url(img/cover1.png);
+  background-size: 100% 100%; /* Meregangkan gambar untuk mengisi seluruh area */
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: center;
+  height: 30rem;
+  min-height: 30vh;
+  position: relative;
+}
+
+.about .about-me {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.about .about-me h1 {
+  color: #ddf4e7;
+  font-size: 3rem;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  font-weight: 900;
+}
+.about .about-me h1 span {
+  font-size: 3.5rem;
+  color: #ddf4e7;
+  margin-bottom: 20px;
+}
+.about .about-me h2 {
+  font-size: 1.1rem;
+  color: #ddf4e7;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.footer {
+  background-color: #ddf4e7;
+}
+.footer div {
+  justify-content: baseline;
+  margin-left: 5rem;
+}
+.footer div h2 {
+  padding-top: 2rem;
+  font-weight: 400;
+  color: #26667f;
+  padding-bottom: 1rem;
+}
+
+:root {
+  --bg: #1f6b78;
+  --bg-2: #195a64;
+  --panel: #e8f3ef;
+  --ink: #eaf8f4;
+  --card: #d8efe9;
+  --ring: rgba(0, 0, 0, 0.08);
+  --white: #fff;
+  --muted: #bfe0da;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  --radius: 18px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
+    sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--ink);
+}
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* Intro block */
+.hero {
+  display: grid;
+  gap: 18px;
+  margin: 6px 0 24px;
+}
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+.bullet {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.bullet h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #f3fffb;
+}
+.bullet ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #e2fbf5;
+}
+.bullet li {
+  margin: 6px 0;
+}
+
+/* Map card */
+.map-section iframe {
+  width: 100%;
+  max-width: 1000px;
+  height: 450px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Slider */
+.team {
+  margin: 26px 0 0;
+}
+.slider {
+  position: relative;
+}
+.track {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.slide {
+  flex: 0 0 85%;
+  max-width: 85%;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--ring);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.slide img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+/* caption */
+.cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 70%);
+  padding: 18px;
+}
+.name {
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.role {
+  color: #e6fffb;
+  opacity: 0.95;
+  margin-top: 4px;
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  border: 0;
+  background: rgba(255, 255, 255, 0.9);
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.arrow:hover {
+  filter: brightness(0.95);
+}
+.prev {
+  left: 8px;
+}
+.next {
+  right: 8px;
+}
+
+/* dots */
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 0;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+}
+.dot[aria-current="true"] {
+  width: 20px;
+  background: #fff;
+}
+
+@media (min-width: 720px) {
+  .slide {
+    flex-basis: 32%;
+    max-width: 32%;
+  }
+  .track {
+    scroll-snap-type: x mandatory;
+  }
+  .slide {
+    scroll-snap-align: start;
+  }
+  .slide img {
+    height: 360px;
+  }
+}
+
+.dropdown .dropbtn {
+  color: #26667f;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  font-weight: 500;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  list-style: none;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  border: none;
+  background-color: #ddf4e7;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ddf4e7;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.about {
+  background-image: url(img/cover1.png);
+  background-size: 100% 100%; /* Meregangkan gambar untuk mengisi seluruh area */
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: center;
+  height: 30rem;
+  min-height: 30vh;
+  position: relative;
+}
+
+.about1 {
+  background-image: url(img/rinjani.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: start;
+  height: 30rem;
+  min-height: 60vh;
+  position: relative;
+}
+.about1 .about-me1 {
+  text-align: start;
+  margin-top: 10rem;
+}
+.about1 .about-me1 h1 {
+  color: #ddf4e7;
+  font-size: 3rem;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  font-weight: 900;
+  font-size: 80px;
+}
+.about1 .about-me1 h1 span {
+  font-size: 3.5rem;
+  color: #ddf4e7;
+  margin-bottom: 20px;
+}
+.about1 .about-me1 p {
+  font-size: 30px;
+  color: #ddf4e7;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
