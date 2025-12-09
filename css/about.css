@@ -1,0 +1,758 @@
+/* =========================================
+   GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+  --bg-primary: #26667f;
+  /* Biru Laut */
+  --bg-secondary: #ddf4e7;
+  /* Hijau Mint */
+  --text-dark: #13434b;
+  --text-light: #ffffff;
+
+  /* Variables dari konten lain */
+  --bg: #1f6b78;
+  --bg-2: #195a64;
+  --panel: #e8f3ef;
+  --ink: #eaf8f4;
+  --card: #d8efe9;
+  --ring: rgba(0, 0, 0, 0.08);
+  --white: #fff;
+  --muted: #bfe0da;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  --radius: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* =========================================
+   NAVBAR (Desktop)
+   ========================================= */
+.navbar {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0 5%;
+  height: 80px;
+  max-width: 1800px;
+  margin: 0 auto;
+  /* Memastikan navbar terpusat di layar lebar */
+  background-color: #ddf4e7;
+}
+
+
+/* Logo */
+.navbar nav img {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  margin-right: 60px;
+}
+
+/* Container Menu */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Link & Dropdown Button */
+.nav-links a,
+.dropbtn {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--bg-primary);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+  padding: 0;
+}
+
+.nav-links a:hover,
+.dropbtn:hover {
+  color: #1a4a5e;
+}
+
+/* Icon Burger & Close (Hidden di Desktop) */
+.menu-icon,
+.close-icon {
+  display: none;
+  cursor: pointer;
+  color: var(--bg-primary);
+  font-size: 28px;
+}
+
+/* Dropdown Content */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 20px;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* =========================================
+   MOBILE & TABLET (SIDEBAR MODE)
+   ========================================= */
+@media (max-width: 1024px) {
+
+  /* Kembalikan space-between agar Logo Kiri, Burger Kanan */
+  .navbar nav {
+    justify-content: space-between;
+  }
+
+  .navbar nav img {
+    margin-right: 0;
+    /* Reset margin logo */
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* SIDEBAR SETTING */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    /* Sembunyi */
+    height: 100vh;
+    width: 250px;
+    background-color: var(--bg-secondary);
+
+    /* Paksa Vertikal */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+
+    padding: 80px 20px 30px 20px;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    overflow-y: auto;
+  }
+
+  .close-icon {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  /* Item Menu di Sidebar */
+  .nav-links>a,
+  .nav-links>.dropdown {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+  }
+
+  .nav-links a,
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Dropdown Mobile */
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown-content {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+}
+
+/* =========================================
+   CONTENT SECTIONS (ABOUT, FOOTER, ETC.)
+   ========================================= */
+
+/* ABOUT SECTION - COVER 1 */
+.about {
+  background-image: url(img/cover1.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: center;
+  height: 30rem;
+  min-height: 30vh;
+  position: relative;
+}
+
+.about .about-me {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about .about-me h1 {
+  color: #ddf4e7;
+  font-size: 3rem;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  font-weight: 900;
+}
+
+.about .about-me h1 span {
+  font-size: 3.5rem;
+  color: #ddf4e7;
+  margin-bottom: 20px;
+}
+
+.about .about-me h2 {
+  font-size: 1.1rem;
+  color: #ddf4e7;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Penyesuaian Teks di .about untuk perangkat kecil (Tambahan Responsif) */
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 5% 40px;
+    height: auto;
+    min-height: 40vh;
+  }
+
+  .about .about-me h1 {
+    font-size: 2.2rem;
+    margin-top: -3rem;
+    padding-bottom: 3rem;
+  }
+
+  .about .about-me h1 span {
+    font-size: 2.5rem;
+  }
+
+  .about .about-me h2 {
+    font-size: 1rem;
+  }
+}
+
+
+/* ABOUT SECTION - RINJANI */
+.about1 {
+  background-image: url(img/rinjani.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: start;
+  height: 30rem;
+  min-height: 60vh;
+  position: relative;
+}
+
+.about1 .about-me1 {
+  text-align: start;
+  margin-top: 10rem;
+}
+
+.about1 .about-me1 h1 {
+  color: #ddf4e7;
+  font-size: 3rem;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  font-weight: 900;
+  font-size: 80px;
+}
+
+.about1 .about-me1 h1 span {
+  font-size: 3.5rem;
+  color: #ddf4e7;
+  margin-bottom: 20px;
+}
+
+.about1 .about-me1 p {
+  font-size: 30px;
+  color: #ddf4e7;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Penyesuaian Teks di .about1 untuk perangkat kecil (Tambahan Responsif) */
+@media (max-width: 768px) {
+  .about1 {
+    padding: 80px 5% 40px;
+    min-height: 50vh;
+  }
+
+  .about1 .about-me1 {
+    margin-top: 5rem;
+  }
+
+  .about1 .about-me1 h1 {
+    font-size: 3rem;
+  }
+
+  .about1 .about-me1 p {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* WRAPPER & INTRO (HERO) */
+html,
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
+    sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* Intro block */
+.hero {
+  display: grid;
+  gap: 18px;
+  margin: 6px 0 24px;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.bullet {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.bullet h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #f3fffb;
+}
+
+.bullet ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #e2fbf5;
+}
+
+.bullet li {
+  margin: 6px 0;
+}
+
+/* Map card */
+.map-section iframe {
+  width: 100%;
+  max-width: 1000px;
+  height: 450px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Penyesuaian Map untuk HP (Tambahan Responsif) */
+@media (max-width: 600px) {
+  .map-section iframe {
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+
+/* Penyesuaian umum untuk konten utama di layar kecil (Tambahan Responsif) */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 16px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  .bullet {
+    padding: 12px 14px;
+  }
+}
+
+
+/* Slider */
+.team {
+  margin: 26px 0 0;
+}
+
+.slider {
+  position: relative;
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.slide {
+  flex: 0 0 85%;
+  max-width: 85%;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--ring);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* caption */
+.cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 70%);
+  padding: 18px;
+}
+
+.name {
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.role {
+  color: #e6fffb;
+  opacity: 0.95;
+  margin-top: 4px;
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  border: 0;
+  background: rgba(255, 255, 255, 0.9);
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.arrow:hover {
+  filter: brightness(0.95);
+}
+
+.prev {
+  left: 8px;
+}
+
+.next {
+  right: 8px;
+}
+
+/* dots */
+.dots {
+  display: block;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.dot[aria-current="true"] {
+  width: 20px;
+  background: #fff;
+}
+
+/* Slider Desktop/Tablet (720px+) */
+@media (min-width: 720px) {
+  .slide {
+    flex-basis: 32%;
+    max-width: 32%;
+  }
+
+  .track {
+    scroll-snap-type: x mandatory;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+  }
+
+  .slide img {
+    height: 360px;
+  }
+}
+
+/* Slider Mobile (di bawah 480px) (Tambahan Responsif) */
+@media (max-width: 480px) {
+  .slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .slide img {
+    height: 250px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
+
+
+/* =========================================
+   CUSTOM FOOTER
+   ========================================= */
+.custom-footer {
+  background-color: #dff5ec;
+  padding: 40px 5%;
+  font-family: "Poppins", sans-serif;
+  color: #13434b;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* --- BAGIAN KIRI (LOGO) --- */
+.logo-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+/* --- BAGIAN TENGAH (KONTAK) --- */
+.contact-section {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.email {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #13434b;
+  font-size: 1.5rem;
+  border: 2px solid #13434b;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #13434b;
+  color: #dff5ec;
+}
+
+/* --- BAGIAN KANAN (PAYMENT) --- */
+.payment-section {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.payment-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #13434b;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+}
+
+.payment-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 250px;
+}
+
+.payment-logos img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 40px;
+}
+
+/* --- RESPONSIVE FOOTER (HP) --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-section {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .payment-section {
+    align-items: center;
+    order: 3;
+    /* Pindahkan payment ke bawah di HP */
+  }
+
+  .contact-section {
+    order: 2;
+    margin-bottom: 20px;
+  }
+
+  .logo-section {
+    order: 1;
+  }
+
+  .payment-section h3 {
+    text-align: center;
+  }
+}
+
+/* Penyesuaian Footer untuk layar sangat kecil (Tambahan Responsif) */
+@media (max-width: 480px) {
+  .custom-footer {
+    padding: 30px 5%;
+  }
+
+  .phone-number,
+  .email {
+    font-size: 1.2rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .payment-logos {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 200px;
+  }
+}

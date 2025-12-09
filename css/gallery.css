@@ -1,0 +1,529 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+  --bg-primary: #26667f;    /* Biru Laut */
+  --bg-secondary: #ddf4e7;  /* Hijau Mint */
+  --text-dark: #13434b;
+  --text-light: #ffffff;
+  --ink: #13434b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+.navbar {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar nav {
+  display: flex;
+  /* MENU DI KIRI (DEKAT LOGO) */
+  justify-content: start;
+  align-items: center;
+  padding: 0 5%;
+  height: 80px;
+  max-width: 1800px;
+  margin: 0 auto;
+  background-color: #ddf4e7;
+}
+
+
+/* Logo */
+.navbar nav img {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  /* Jarak antara Logo dan Menu */
+  margin-right: 60px;
+}
+
+/* Container Menu */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Link & Dropdown Button */
+.nav-links a,
+.dropbtn {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--bg-primary);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+  padding: 0;
+}
+
+.nav-links a:hover,
+.dropbtn:hover {
+  color: #1a4a5e;
+}
+
+/* Icon Burger & Close (Hidden di Desktop) */
+.menu-icon,
+.close-icon {
+  display: none;
+  cursor: pointer;
+  color: var(--bg-primary);
+  font-size: 28px;
+}
+
+/* Dropdown Content */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 20px;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* =========================================
+   3. MOBILE & TABLET (SIDEBAR MODE)
+   ========================================= */
+@media (max-width: 1024px) {
+  /* Kembalikan space-between agar Logo Kiri, Burger Kanan */
+  .navbar nav {
+    justify-content: space-between;
+  }
+
+  .navbar nav img {
+    margin-right: 0; /* Reset margin logo */
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* SIDEBAR SETTING */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px; /* Sembunyi */
+    height: 100vh;
+    width: 250px;
+    background-color: var(--bg-secondary);
+
+    /* Paksa Vertikal */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+
+    padding: 80px 20px 30px 20px;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    overflow-y: auto;
+  }
+
+  .close-icon {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  /* Item Menu di Sidebar */
+  .nav-links > a,
+  .nav-links > .dropdown {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+  }
+
+  .nav-links a,
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Dropdown Mobile */
+  .dropdown {
+    width: 100%;
+  }
+  .dropdown:hover .dropdown-content {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+}
+.about1 {
+  background-image: url(img/rinjani.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #ddf4e7;
+  padding: 120px 10% 60px;
+  text-align: start;
+  height: 30rem;
+  min-height: 60vh;
+  position: relative;
+}
+.about1 .about-me1 {
+  text-align: start;
+  margin-top: 10rem;
+}
+.about1 .about-me1 h1 {
+  color: #ddf4e7;
+  font-size: 3rem;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  font-weight: 900;
+  font-size: 80px;
+}
+.about1 .about-me1 h1 span {
+  font-size: 3.5rem;
+  color: #ddf4e7;
+  margin-bottom: 20px;
+}
+.about1 .about-me1 p {
+  font-size: 30px;
+  color: #ddf4e7;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* Judul Section Gallery */
+.tracking-in-expand {
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  text-align: center;
+  color: #ddf4e7;
+  margin: 20px 0;
+}
+
+/* --- 4. GALLERY ITEM (WRAPPER) --- */
+.gallery-item {
+  position: relative; 
+  overflow: hidden;
+  margin: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* --- 5. OVERLAY TEXT & BUTTON (HOVER) --- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Sedikit lebih gelap agar tombol jelas */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box; /* Agar padding tidak merusak layout */
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.overlay h3 { margin: 0 0 5px 0; color: #4CAF50; font-size: 1.2rem; }
+.overlay p { font-size: 0.9rem; margin-bottom: 10px; }
+.overlay .price { background: #4CAF50; padding: 5px 10px; border-radius: 10px; font-weight: bold; margin-bottom: 15px; }
+
+/* STYLE KHUSUS TOMBOL BOOKING */
+.book-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #4CAF50;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.book-btn:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+
+/* --- 6. LAYOUT ATAS (VERTICAL / 3 KOLOM) --- */
+.container {
+  display: flex;
+  gap: 20px;
+  height: 600px; 
+}
+
+.scale-in-center {
+  animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 100%;
+}
+
+.container .scale-in-center:nth-child(1),
+.container .scale-in-center:nth-child(3) {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.container .scale-in-center:nth-child(2) {
+  flex-grow: 1;
+  width: 500px;
+}
+
+
+/* --- 7. LAYOUT BAWAH (HORIZONTAL / 5 KOLOM) --- */
+.container1 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.slide-in-fwd-center {
+  animation: slide-in-fwd-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 400px; 
+}
+
+.container1 .slide-in-fwd-center:nth-child(1),
+.container1 .slide-in-fwd-center:nth-child(2),
+.container1 .slide-in-fwd-center:nth-child(4),
+.container1 .slide-in-fwd-center:nth-child(5) {
+  flex-grow: 1;
+  width: 100px;
+}
+
+.container1 .slide-in-fwd-center:nth-child(3) {
+  width: 100%;
+}
+/* --- FOOTER STYLE MIRIP GAMBAR --- */
+.custom-footer {
+    background-color: #dff5ec; /* Warna hijau muda sesuai gambar */
+    padding: 40px 5%;
+    font-family: "Poppins", sans-serif;
+    color: #13434b; /* Warna teks hijau tua/teal */
+    border-top: 1px solid rgba(0,0,0,0.05); /* Opsional: garis halus di atas */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertikal center */
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Agar responsif di HP */
+    gap: 30px;
+}
+
+/* --- BAGIAN KIRI (LOGO) --- */
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-logo {
+    max-width: 200px; /* Sesuaikan ukuran logo */
+    height: auto;
+}
+
+/* --- BAGIAN TENGAH (KONTAK) --- */
+.contact-section {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.phone-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.email {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #13434b;
+    font-size: 1.5rem;
+    border: 2px solid #13434b; /* Kotak outline */
+    border-radius: 8px; /* Sudut tumpul */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #13434b;
+    color: #dff5ec;
+}
+
+/* --- BAGIAN KANAN (PAYMENT) --- */
+.payment-section {
+    flex: 1;
+    text-align: left; /* Sesuai gambar, judul rata kiri relatif terhadap grupnya */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Taruh di sebelah kanan container */
+}
+
+.payment-section h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #13434b;
+    text-align: center;
+    width: 100%; 
+    max-width: 250px; /* Batasi lebar agar align dengan grid logo */
+}
+
+.payment-logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom logo */
+    gap: 10px;
+    max-width: 250px;
+}
+
+.payment-logos img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: white;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-height: 40px; /* Batasi tinggi logo */
+}
+
+/* --- RESPONSIVE (HP) --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-section {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .payment-section {
+        align-items: center; /* Di HP jadi tengah */
+    }
+    
+    .payment-section h3 {
+        text-align: center;
+    }
+}
+
+
+/* --- ANIMATIONS --- */
+@keyframes slide-in-fwd-center {
+  0% { transform: translateZ(-1400px); opacity: 0; }
+  100% { transform: translateZ(0); opacity: 1; }
+}
+
+@keyframes scale-in-center {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tracking-in-expand {
+  0% { letter-spacing: -0.5em; opacity: 0; }
+  40% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  
+  .container, .container1 {
+    flex-direction: column;
+    height: auto; 
+  }
+  
+  .container .scale-in-center,
+  .container1 .slide-in-fwd-center {
+    width: 100% !important; 
+    height: 300px;
+    margin-bottom: 20px;
+    flex: auto;
+  }
+  
+  .about1 h1 { font-size: 40px !important; }
+}
